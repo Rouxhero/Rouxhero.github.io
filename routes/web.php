@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     })->name('machine');
     
     Route::get('/dashboard/user', function () {
-        return view('addM');
+        return view('user');
     })->name('user');
     
     Route::get('/dashboard/server', function () {
@@ -45,5 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/ajax/savedb', [AjaxController::class,'savedb']);
     Route::post('/ajax/freshdb', [AjaxController::class,'freshdb']);
     Route::post('/ajax/cache', [AjaxController::class,'cache']);
+    Route::post('/ajax/edituser', [AjaxController::class,'edituser']);
 });
 require __DIR__.'/auth.php';

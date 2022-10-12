@@ -61,3 +61,27 @@ function cacheDG() {
         }
     })
 }
+
+function editUser(userData) {
+    loadin()
+    console.log(userData)
+    $.ajax({
+        url: "/ajax/edituser",
+        type: "POST",
+        data: {
+            "name": userData[0],
+            "email": userData[1],
+            "right": userData[2]
+        },
+        success: function(data) {
+            loadout()
+            $('#modal_title').html('Edit User')
+            $('#modal-body').html(data)
+            openModal()
+        },
+        error: function(data) {
+            alert("Error AJAX")
+            loadout()
+        }
+    })
+}

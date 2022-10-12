@@ -9,5 +9,4 @@
 </div>
 <input type="hidden" id="lon">
 <input type="hidden" id="lat">
-<input type="text" id="debug"/>
 @endsection
