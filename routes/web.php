@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HPControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HPControllers::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard/addM', function () {
+    return view('addM');
+})->middleware(['auth'])->name('addM');
 
 require __DIR__.'/auth.php';
