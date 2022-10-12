@@ -20,6 +20,11 @@
                         Add Machine
                     </x-nav-link>
                     @endif
+                    @if (Auth::user()->right >=2)
+                    <x-nav-link :href="route('machine')" :active="request()->routeIs('machine')">
+                        Manage Machine
+                    </x-nav-link>
+                    @endif
                     @if (Auth::user()->right >=3)
                     <x-nav-link  :href="route('user')" :active="request()->routeIs('user')">
                                 Manage user
@@ -84,6 +89,11 @@
             @if (Auth::user()->right >=1)
             <x-responsive-nav-link  :href="route('addM')" :active="request()->routeIs('addM')">
                         Add Machine
+            </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->right >=2)
+            <x-responsive-nav-link :href="route('machine')" :active="request()->routeIs('machine')">
+                Manage Machine
             </x-responsive-nav-link>
             @endif
             @if (Auth::user()->right >=3)

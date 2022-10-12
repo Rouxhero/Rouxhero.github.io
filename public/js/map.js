@@ -42,5 +42,8 @@
          // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
      navigator.geolocation.getCurrentPosition((position) => {
          initMap(position.coords.latitude, position.coords.longitude);
+     }, (error) => {
+         console.log(error);
+         loadout()
      });
  });

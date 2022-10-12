@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HPControllers;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +17,33 @@ use App\Http\Controllers\HPControllers;
 
 Route::get('/',[HPControllers::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard/addM', function () {
-    return view('addM');
-})->middleware(['auth'])->name('addM');
 
-Route::get('/dashboard/user', function () {
-    return view('addM');
-})->middleware(['auth'])->name('user');
-
-Route::get('/dashboard/server', function () {
-    return view('addM');
-})->middleware(['auth'])->name('server');
-
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    Route::get('/dashboard/addM', function () {
+        return view('addM');
+    })->name('addM');
+    
+    
+    Route::get('/dashboard/machine', function () {
+        return view('addM');
+    })->name('machine');
+    
+    Route::get('/dashboard/user', function () {
+        return view('addM');
+    })->name('user');
+    
+    Route::get('/dashboard/server', function () {
+        return view('server');
+    })->name('server');
+    // AJAX 
+    Route::post('/ajax/gitpull', [AjaxController::class,'gitpull']);
+    Route::post('/ajax/savedb', [AjaxController::class,'savedb']);
+    Route::post('/ajax/freshdb', [AjaxController::class,'freshdb']);
+    Route::post('/ajax/cache', [AjaxController::class,'cache']);
+});
 require __DIR__.'/auth.php';
