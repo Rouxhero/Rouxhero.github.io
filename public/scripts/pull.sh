@@ -1,4 +1,4 @@
 cd ..
 echo $PWD
-./gitpull
+sh scripts/gitpull.sh
 php artisan route:cache
