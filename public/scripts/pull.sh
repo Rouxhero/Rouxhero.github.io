@@ -1,4 +1,6 @@
 cd ..
 echo $PWD
-sh scripts/gitpull.sh
+echo start pulling 
+git pull
+echo Done
 php artisan route:cache
