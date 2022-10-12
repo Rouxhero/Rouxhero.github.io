@@ -44,6 +44,7 @@
          initMap(position.coords.latitude, position.coords.longitude);
      }, (error) => {
          console.log(error);
+         $('#debug').val(error)
          loadout()
      });
  });
