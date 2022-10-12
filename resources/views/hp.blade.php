@@ -7,7 +7,6 @@
 <div id="map" class="w-[400px] h-[400px]">
     <!-- Ici s'affichera la carte -->
 </div>
-<h1> Version UPTODATE</h1>
 <input type="hidden" id="lon">
 <input type="hidden" id="lat">
 @endsection
