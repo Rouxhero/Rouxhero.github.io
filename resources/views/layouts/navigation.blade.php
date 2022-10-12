@@ -15,9 +15,21 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()->right >=1)
                     <x-nav-link :href="route('addM')" :active="request()->routeIs('addM')">
                         Add Machine
                     </x-nav-link>
+                    @endif
+                    @if (Auth::user()->right >=3)
+                    <x-nav-link  :href="route('user')" :active="request()->routeIs('user')">
+                                Manage user
+                    </x-nav-link>
+                    @endif
+                    @if (Auth::user()->right >=3)
+                    <x-nav-link  :href="route('server')" :active="request()->routeIs('server')">
+                               Server
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -69,9 +81,21 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->right >=1)
             <x-responsive-nav-link  :href="route('addM')" :active="request()->routeIs('addM')">
                         Add Machine
             </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->right >=3)
+            <x-responsive-nav-link  :href="route('user')" :active="request()->routeIs('user')">
+                        Manage user
+            </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->right >=3)
+            <x-responsive-nav-link  :href="route('server')" :active="request()->routeIs('server')">
+                       Server
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

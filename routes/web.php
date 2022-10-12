@@ -19,8 +19,17 @@ Route::get('/',[HPControllers::class, 'index']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 Route::get('/dashboard/addM', function () {
     return view('addM');
 })->middleware(['auth'])->name('addM');
+
+Route::get('/dashboard/user', function () {
+    return view('addM');
+})->middleware(['auth'])->name('user');
+
+Route::get('/dashboard/server', function () {
+    return view('addM');
+})->middleware(['auth'])->name('server');
 
 require __DIR__.'/auth.php';
