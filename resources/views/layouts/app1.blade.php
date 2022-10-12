@@ -22,7 +22,7 @@
     @include('components.modale')
     @include('components.loading')
 
-    <div class="bg-gray-100 min-h-[94vh]">
+    <div class="bg-gray-100 min-h-screen">
             @include('components.navbar')
         <div class="pt-12">
             @yield('content')
