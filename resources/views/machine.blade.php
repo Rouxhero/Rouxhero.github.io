@@ -41,7 +41,7 @@ use App\Models\Machine;
         </div>
     </div>
     <input type="hidden" class="rounded-lg bg-[#67b790e8] pt-1">
-    {{-- <td class="rounded-lg px-[2px] text-center bg-[#67b790e8]">
+    {{-- <td class="rounded-lgpx-[2px] m-[3px] text-center bg-[#67b790e8]">
         <b>Café</b>
     </td> --}}
     <script type="text/javascript">

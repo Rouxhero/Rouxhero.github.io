@@ -85,6 +85,7 @@
                  marker
              });
              loadout()
+             my_map.setZoom(17)
              $('#map').show()
          }
      })

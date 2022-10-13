@@ -660,6 +660,9 @@ select {
 .z-50 {
   z-index: 50;
 }
+.m-\[3px\] {
+  margin: 3px;
+}
 .m-auto {
   margin: auto;
 }
@@ -1033,10 +1036,6 @@ select {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
-}
-.px-\[2px\] {
-  padding-left: 2px;
-  padding-right: 2px;
 }
 .py-4 {
   padding-top: 1rem;
