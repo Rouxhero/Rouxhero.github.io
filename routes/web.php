@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/ajax/edituser', [AjaxController::class,'edituser']); 
     Route::post('/ajax/saveUser', [AjaxController::class,'updateUser']);
     Route::post('/ajax/addm', [AjaxController::class,'addm']);
-    Route::post('/ajax/getMarker', [AjaxController::class,'getMarker']);
+   
 });
+
+Route::post('/ajax/getMarker', [AjaxController::class,'getMarker']);
 require __DIR__.'/auth.php';
