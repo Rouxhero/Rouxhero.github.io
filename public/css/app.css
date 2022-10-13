@@ -975,11 +975,11 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
-.bg-\[\#000000e3\] {
-  background-color: #000000e3;
-}
 .bg-\[\#67b790e8\] {
   background-color: #67b790e8;
+}
+.bg-\[\#000000e3\] {
+  background-color: #000000e3;
 }
 .bg-blue-200 {
   --tw-bg-opacity: 1;
@@ -1033,6 +1033,10 @@ select {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
+}
+.px-\[2px\] {
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .py-4 {
   padding-top: 1rem;

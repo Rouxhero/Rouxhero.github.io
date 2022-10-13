@@ -18,4 +18,3 @@
     <input type="button" onclick="closeModal();$('#map').show();$('#close-modal').show()"
         class="px-16 shadow-sm sm:rounded-lg mt-8 border-2 bg-green-200" value="Annuler" />
 </div>
-<input type="hidden" class="rounded-lg bg-[#67b790e8] pt-1">

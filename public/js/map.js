@@ -99,18 +99,18 @@
         <table>
         <tbody>
         <tr>
-        <td class="rounded-lg bg-[#67b790e8]">
+        <td class="rounded-lg px-[2px] my-[5px] text-center bg-[#67b790e8]" role="button" onclick="switchPanel('coffee')">
         <b>Café</b>
         </td>
-        <td class="rounded-lg bg-[#67b790e8]">
+        <td class="rounded-lg px-[2px] my-[5px] text-center bg-[#67b790e8]" role="button" onclick="switchPanel('baseCoffee')">
         <b>a base Café</b>
         </td>
         </tr>
         <tr>
-        <td class="rounded-lg bg-[#67b790e8]">
+        <td class="rounded-lg  px-[2px] my-[5px] text-center bg-[#67b790e8]" role="button" onclick="switchPanel('choco')">
         <b>Chocolat</b>
         </td>
-        <td class="rounded-lg bg-[#67b790e8]">
+        <td class="rounded-lg px-[2px] my-[5px] text-center bg-[#67b790e8]" role="button" onclick="switchPanel('soupe')">
         <b>Soupe</b>
         </td>
         </tr>

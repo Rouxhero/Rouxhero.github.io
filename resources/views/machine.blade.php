@@ -40,14 +40,17 @@ use App\Models\Machine;
             
         </div>
     </div>
+    <input type="hidden" class="rounded-lg bg-[#67b790e8] pt-1">
+    {{-- <td class="rounded-lg px-[2px] text-center bg-[#67b790e8]">
+        <b>Café</b>
+    </td> --}}
     <script type="text/javascript">
         $(document).ready(function () {
             let table = $('#machineTable').DataTable();
             $('#machineTable tbody').on('click', 'tr', function () {
         editUser(table.row(this).data());
-        })
-        });
+        })});
        
-    
+        
     </script>
 </x-app-layout>
