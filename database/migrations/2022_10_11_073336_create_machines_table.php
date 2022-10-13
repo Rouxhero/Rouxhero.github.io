@@ -17,8 +17,8 @@ class CreateMachinesTable extends Migration
             $table->id();
             $table->text('name');
             $table->string('code',200);
-            $table->integer('longitude');
-            $table->integer('latitude');
+            $table->float('longitude', 25, 20);
+            $table->float('latitude', 25, 20);
             $table->string('author');
             $table->timestamps();
         });

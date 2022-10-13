@@ -2,7 +2,7 @@
 <!-- Modal -->
 <div id="modal" class="modal fade fixed top-0 left-0 hidden w-full h-full overflow-x-hidden overflow-y-auto bg-[#000000a3] z-50"
  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog relative w-fit pointer-events-none mx-auto top-[41%]">
+  <div class="modal-dialog relative w-fit pointer-events-none m-auto">
     <div
       class="modal-content border-none shadow-lg relative flex flex-col  w-full  pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
       <div

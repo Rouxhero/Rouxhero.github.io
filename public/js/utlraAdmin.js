@@ -85,3 +85,27 @@ function editUser(userData) {
         }
     })
 }
+
+function updateUser() {
+    loadin()
+    var name = $('#name').val()
+    var right = $('#right').val()
+    var email = $('#email').val()
+    $.ajax({
+        url: "/ajax/saveUser",
+        type: "POST",
+        data: {
+            "name": name,
+            "email": email,
+            "right": right
+        },
+        success: function(data) {
+            loadout()
+            closeModal()
+        },
+        error: function(data) {
+            alert("Error AJAX")
+            loadout()
+        }
+    })
+}

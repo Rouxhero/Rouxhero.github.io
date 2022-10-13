@@ -1,5 +1,5 @@
 @php
-use App\Models\User;
+use App\Models\Machine;
 @endphp
 
 <x-app-layout>
@@ -7,7 +7,7 @@ use App\Models\User;
     <script src="/js/dataTables.min.js"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Gestion Utilisateur
+            Gestion Machine
         </h2>
     </x-slot>
 <script src="/js/utlraAdmin.js"></script>
@@ -17,7 +17,7 @@ use App\Models\User;
                 <div class="p-6 bg-white border-b border-gray-200 flex flex-col">
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight pb-6"> Utilisateur</h2>
                     
-                    <table id="userTable" class="display" style="width:100%">
+                    <table id="machineTable" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -26,11 +26,11 @@ use App\Models\User;
                             </tr>
                         </thead>
                         <tbody>
-                             @foreach (User::all() as $aUser)
+                             @foreach (Machine::all() as $machine)
                                 <tr>
-                                    <td>{{$aUser->name}}</td>
-                                    <td>{{$aUser->email}}</td>
-                                    <td>{{$aUser->right}}</td>
+                                    <td>{{$machine->name}}</td>
+                                    <td>{{$machine->code}}</td>
+                                    <td>{{$machine->author}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -42,8 +42,8 @@ use App\Models\User;
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            let table = $('#userTable').DataTable();
-            $('#userTable tbody').on('click', 'tr', function () {
+            let table = $('#machineTable').DataTable();
+            $('#machineTable tbody').on('click', 'tr', function () {
         editUser(table.row(this).data());
         })
         });

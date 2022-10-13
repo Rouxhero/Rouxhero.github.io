@@ -12,12 +12,7 @@
 
 
  var my_map = null;
- var villes = {
-     "Paris": { "lat": 48.852969, "lon": 2.349903 },
-     "Brest": { "lat": 48.383, "lon": -4.500 },
-     "Quimper": { "lat": 48.000, "lon": -4.100 },
-     "Bayonne": { "lat": 43.500, "lon": -1.467 }
- };
+
  // Fonction d'initialisation de la carte
  function initMap(lat, lon) {
 
@@ -30,12 +25,21 @@
          minZoom: 1,
          maxZoom: 20,
      }).addTo(my_map);
-     // Nous parcourons la liste des villes
-     for (ville in villes) {
-         var marker = L.marker([villes[ville].lat, villes[ville].lon]).addTo(my_map);
-         marker.bindPopup(ville);
-     }
-     loadout()
+     $.ajax({
+         url: "/ajax/getMarker",
+         "type": "POST",
+         success: function(data) {
+             data = JSON.parse(data);
+             console.log(data)
+             data.forEach(element => {
+                 console.log(element)
+                 var marker = L.marker([element.lat, element.lon]).addTo(my_map);
+                 marker.bindPopup(element.name);
+             });
+             loadout()
+         }
+     })
+
  }
  window.addEventListener('load', function() {
      loadin()
