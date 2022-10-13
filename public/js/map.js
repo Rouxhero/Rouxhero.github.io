@@ -34,12 +34,22 @@
              data.forEach(element => {
                  console.log(element)
                  var marker = L.marker([element.lat, element.lon]).addTo(my_map);
-                 marker.bindPopup(element.name);
+                 marker.bindPopup(createEleement(element));
              });
              loadout()
          }
      })
 
+ }
+
+ function createEleement(element) {
+     var text = `
+    <div>
+        <h3>${element.name}</h3>
+        <a href=" https://www.google.fr/maps/dir//'${element.lat},${element.lon}'/@${element.lat},${element.lon},19z" target="_blank">Open in Google Maps</a>
+    </div>    
+    `
+     return text
  }
  window.addEventListener('load', function() {
      loadin()
