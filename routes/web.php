@@ -25,20 +25,36 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
     
     Route::get('/dashboard/addM', function () {
-        return view('addM');
+        if (auth()->user()->right >=1 ) {
+            return view('addM');
+        } else {
+            return redirect()->back();
+        }
     })->name('addM');
     
     
     Route::get('/dashboard/machine', function () {
-        return view('machine');
+        if (auth()->user()->right >=2 ) {
+            return view('machine');
+        } else {
+            return redirect()->back();
+        }
     })->name('machine');
     
     Route::get('/dashboard/user', function () {
-        return view('user');
+        if (auth()->user()->right >=3 ) {
+            return view('user');
+        } else {
+            return redirect()->back();
+        }
     })->name('user');
     
     Route::get('/dashboard/server', function () {
-        return view('server');
+        if (auth()->user()->right >=3 ) {
+            return view('server');
+        } else {
+            return redirect()->back();
+        }
     })->name('server');
     // AJAX 
     Route::post('/ajax/gitpull', [AjaxController::class,'gitpull']);
