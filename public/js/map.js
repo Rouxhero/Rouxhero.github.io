@@ -13,7 +13,20 @@
 
  var my_map = null;
 
- // Fonction d'initialisation de la carte
+ function getStyle(color) {
+     return `
+    background-color: ${color};
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    left: -1.5rem;
+    top: -1.5rem;
+    position: relative;
+    border-radius: 3rem 3rem 0;
+    transform: rotate(45deg);
+    border: 1px solid #FFFFFF`
+ }
+
  function initMap(lat, lon) {
 
      console.log(lat, lon)
@@ -25,31 +38,110 @@
          minZoom: 1,
          maxZoom: 20,
      }).addTo(my_map);
+     $('#map').hide()
      $.ajax({
          url: "/ajax/getMarker",
          "type": "POST",
          success: function(data) {
              data = JSON.parse(data);
              console.log(data)
+
+
              data.forEach(element => {
+                 let state = JSON.parse(element.state)
+                 let myCustomColour = '#583470'
+                 let myImages = "ok.svg"
+                 console.log(state)
+                 switch (state.state) {
+                     case '0':
+                     case 0:
+                         myCustomColour = ' #53d956';
+                         myImages = "ok.svg"
+                         break
+                     case '1':
+                     case 1:
+                         myCustomColour = '#FFA500';
+                         myImages = "notok.svg"
+                         break
+                     case '2':
+                     case 2:
+                         myCustomColour = '#c42323';
+                         myImages = "dead.svg"
+                         break
+                 }
+
+                 const icon = L.divIcon({
+                     className: "my-custom-pin",
+                     iconAnchor: [0, 24],
+                     labelAnchor: [-6, 0],
+                     popupAnchor: [0, -36],
+                     html: `<span style="${getStyle(myCustomColour)}"><img src="/images/${myImages}" style="width: 1.75rem;height: 1.75rem;transform: rotate(-45deg);"/></span>`
+                 })
                  console.log(element)
-                 var marker = L.marker([element.lat, element.lon]).addTo(my_map);
-                 marker.bindPopup(createEleement(element));
+                 var marker = L.marker([element.lat, element.lon], {
+                     icon: icon
+                 }).addTo(my_map);
+                 marker.bindPopup(createEleement(element, myImages));
+                 marker
              });
              loadout()
+             $('#map').show()
          }
      })
 
  }
 
- function createEleement(element) {
+ function createEleement(element, myImages) {
      var text = `
     <div>
-        <h3>${element.name}</h3>
+        <h3 class="flex"><span class="pt-1">${element.name}</span><img src="/images/${myImages}" style="width: 1.75rem;height: 1.75rem;"/></h3>
+        <br/>
+        <table>
+        <tbody>
+        <tr>
+        <td class="rounded-lg bg-[#67b790e8]">
+        <b>Café</b>
+        </td>
+        <td class="rounded-lg bg-[#67b790e8]">
+        <b>a base Café</b>
+        </td>
+        </tr>
+        <tr>
+        <td class="rounded-lg bg-[#67b790e8]">
+        <b>Chocolat</b>
+        </td>
+        <td class="rounded-lg bg-[#67b790e8]">
+        <b>Soupe</b>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <br/>
         <a href=" https://www.google.fr/maps/dir//'${element.lat},${element.lon}'/@${element.lat},${element.lon},19z" target="_blank">Open in Google Maps</a>
-    </div>    
+        <br/>
+        <button onclick="updateElement(this)"  data-id="${element.id}" >Update Statut</button>
+        </div>    
     `
      return text
+ }
+
+ function updateElement(elem) {
+     loadin()
+     $('#map').hide()
+     $.ajax({
+         url: "/ajax/updateMachine",
+         "type": "POST",
+         data: {
+             id: $(elem).data('id')
+         },
+         success: function(data) {
+             $('#modal_title').html("Update Machine")
+             $('#modal-body').html(data)
+             openModal()
+             $('#close-modal').hide()
+             loadout()
+         }
+     })
  }
  window.addEventListener('load', function() {
      loadin()

@@ -32,7 +32,7 @@
           active:bg-purple-800 active:shadow-lg
           transition
           duration-150
-          ease-in-out" data-bs-dismiss="modal" onclick="closeModal();">Close</button>
+          ease-in-out" data-bs-dismiss="modal" id="close-modal" onclick="closeModal();">Close</button>
 
       </div>
     </div>

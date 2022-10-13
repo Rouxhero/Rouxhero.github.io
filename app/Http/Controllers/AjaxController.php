@@ -47,13 +47,23 @@ class AjaxController extends Controller
             "author"=> $user));
         State::create(array(
             "id_machine"=>$machine->id,
-            "state"=>"{\"state\":\"0\"}"
+            "state"=>'{
+                "state":0,
+                "product":{
+                    "1":{"name":"Café","dispo":1},
+                    "2":{"name":"Café con leche","dispo":1},
+                    "3":{"name":"Café con leche descafeinado","dispo":1},
+                    "4":{"name":"Café descafeinado","dispo":1},
+                    "5":{"name":"Chocolate","dispo":1},
+                    "6":{"name":"Chocolate con leche","dispo":1}
+                }
+            }'
         ));
     }
 
     public function getMarker(){
         $machines = Machine::all();
-        $markers = array();
+        $markers = array(); 
         foreach($machines as $machine){
             $markers[] = array(
                 "id"=>$machine->id,
@@ -66,5 +76,20 @@ class AjaxController extends Controller
             );
         }
         return json_encode($markers);
+    }
+   
+    public static function updateMachine(Request $request){
+        $machine = Machine::where('id',$request->id)->first();
+        $products = json_decode(State::where('id_machine',$machine->id)->first()->state,true);
+        return view('machineUpdate',array('machine'=>$machine,"products"=>$products["product"]))->render();
+    }
+    public static function updateMachinePost(Request $request){
+        $machine = Machine::where('id',$request->id)->first();
+        $machine->name = $request->name;
+        $machine->code = $request->code;
+        $machine->save();
+        $state = State::where('id_machine',$request->id)->first();
+        $state->state = $request->state;
+        $state->save();
     }
 }

@@ -52,4 +52,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/ajax/getMarker', [AjaxController::class,'getMarker']);
+Route::post('/ajax/updateMachine', [AjaxController::class,'updateMachine']);
 require __DIR__.'/auth.php';
