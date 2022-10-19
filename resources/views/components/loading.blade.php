@@ -7,4 +7,6 @@
 		<div class="sk-chase-dot"></div>
 		<div class="sk-chase-dot"></div>
 	  </div>
+	  <label class=" fixed text-white top-1/2 mt-16 w-full text-center ml-[1.5rem]" id="loading-info"></label> 
 </div>
+<td class="hidden rounded-lg bg-[#67b790e8] bg-[#FFA500e8] bg-[#c42323e8]  px-[2px] text-center w-[8rem] h-[3rem] "></td>

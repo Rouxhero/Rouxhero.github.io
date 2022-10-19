@@ -48,14 +48,80 @@ class AjaxController extends Controller
         State::create(array(
             "id_machine"=>$machine->id,
             "state"=>'{
-                "state":0,
-                "product":{
-                    "1":{"name":"Café","dispo":1},
-                    "2":{"name":"Café con leche","dispo":1},
-                    "3":{"name":"Café con leche descafeinado","dispo":1},
-                    "4":{"name":"Café descafeinado","dispo":1},
-                    "5":{"name":"Chocolate","dispo":1},
-                    "6":{"name":"Chocolate con leche","dispo":1}
+                "state": 0,
+                "product": {
+                    "coffee": {
+                        "state": 1,
+                        "0": {
+                            "name": "Americano",
+                            "sate": 1
+            
+                        },
+                        "1": {
+                            "name": "Cappuccino",
+                            "sate": 1
+            
+                        },
+                        "2": {
+                            "name": "Latte",
+                            "sate": 1
+            
+                        }
+                    },
+                    "coffeeB": {
+                        "state": 1,
+                        "0": {
+                            "name": "Americano",
+                            "sate": 1
+            
+                        },
+                        "1": {
+                            "name": "Cappuccino",
+                            "sate": 1
+            
+                        },
+                        "2": {
+                            "name": "Latte",
+                            "sate": 1
+            
+                        }
+                    },
+                    "Chocolate": {
+                        "state": 1,
+                        "0": {
+                            "name": "Americano",
+                            "sate": 1
+            
+                        },
+                        "1": {
+                            "name": "Cappuccino",
+                            "sate": 1
+            
+                        },
+                        "2": {
+                            "name": "Latte",
+                            "sate": 1
+            
+                        }
+                    },
+                    "Soupe": {
+                        "state": 1,
+                        "0": {
+                            "name": "Americano",
+                            "sate": 1
+            
+                        },
+                        "1": {
+                            "name": "Cappuccino",
+                            "sate": 1
+            
+                        },
+                        "2": {
+                            "name": "Latte",
+                            "sate": 1
+            
+                        }
+                    }
                 }
             }'
         ));
