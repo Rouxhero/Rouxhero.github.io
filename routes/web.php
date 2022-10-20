@@ -15,7 +15,7 @@ use App\Http\Controllers\AjaxController;
 |
 */
 
-Route::get('/',[HPControllers::class, 'index']);
+Route::get('/',[HPControllers::class, 'index'])->name('map');
 
 
 

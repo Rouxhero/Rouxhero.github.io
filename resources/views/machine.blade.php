@@ -21,8 +21,8 @@ use App\Models\Machine;
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>email</th>
-                                <th>right</th>
+                                <th>Code</th>
+                                <th>Author</th>
                             </tr>
                         </thead>
                         <tbody>

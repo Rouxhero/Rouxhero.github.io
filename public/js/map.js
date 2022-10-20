@@ -15,6 +15,7 @@
 
  function getStyle(color) {
      return `
+    z-index: 999;
     background-color: ${color};
     width: 2rem;
     height: 2rem;
@@ -83,7 +84,13 @@
                      icon: icon
                  }).addTo(my_map);
                  marker.bindPopup(createEleement(element, myImages));
-                 marker
+                 marker.addEventListener('click', function(marker) {
+                     $('#action-div').show();
+                     $('#action-button').attr("onclick", "").unbind("click");
+                     $('#action-button').on('click', function() {
+                         $('#action-panel').css({ 'bottom': "0px" })
+                     });
+                 })
              });
              loadout()
              my_map.setZoom(17)
@@ -183,7 +190,6 @@
         <br/>
         <a href=" https://www.google.fr/maps/dir//'${element.lat},${element.lon}'/@${element.lat},${element.lon},19z" target="_blank">Open in Google Maps</a>
         <br/>
-        <button onclick="updateElement(this)"  data-id="${element.id}" >Update Statut</button>
         </div>    
     `
      return text
@@ -209,6 +215,9 @@
  }
  window.addEventListener('load', function() {
      loadin()
+     $('#action-button').on('click', function() {
+         alert("Selectionner une mafchine en premier");
+     });
      $('#loading-info').html("Get Location")
          // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
      navigator.geolocation.getCurrentPosition((position) => {
