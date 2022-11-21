@@ -653,6 +653,10 @@ video {
   bottom: 6rem;
 }
 
+.left-\[7rem\] {
+  left: 7rem;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -741,6 +745,10 @@ video {
 
 .ml-\[9rem\] {
   margin-left: 9rem;
+}
+
+.ml-\[8rem\] {
+  margin-left: 8rem;
 }
 
 .block {
