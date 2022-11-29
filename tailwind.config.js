@@ -3,6 +3,10 @@ module.exports = {
     content: ["./**/*.{html,js}"],
     theme: {
         extend: {
+            screens: {
+                'desktop': '1024px',
+                // => @media (min-width: 1280px) { ... }
+            },
             colors: {
                 'header': '#67bcb3',
             },
